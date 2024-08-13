@@ -3,7 +3,7 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import json
 import os
 
-TOKEN = '6975695586:AAFzBdECsA7Xr6cFCz8jup0x7N3F8H695lA'
+TOKEN = '7345169311:AAECOZc5pqkCu3iw0_X5PRV3KYQYA4Jgs-s'
 bot = telebot.TeleBot(TOKEN)
 
 # Admin kullanıcı ID'sini buraya girin
@@ -48,7 +48,13 @@ def gen_markup():
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, "Hoş geldiniz! Lütfen bir sınav türü seçin:", reply_markup=gen_markup())
+    bot.send_message(message.chat.id, "🌟 **Hoş Geldiniz!** 🌟\n\n"
+        "Ben sizin PDF sınav notlarınızı yönetmenize yardımcı olacak botum. 📚\n\n"
+        "Lütfen aşağıdaki sınav türlerinden birini seçin: 🎓\n\n"
+        "🔹 **TYT**\n"
+        "🔹 **AYT**\n"
+        "🔹 **KPSS**\n"
+        "\nSınav türünü seçmek için butonlara tıklayın. 😊", reply_markup=gen_markup())
 
 @bot.message_handler(commands=['admin'])
 def admin_command(message):
