@@ -51,10 +51,11 @@ def start(message):
     bot.send_message(message.chat.id, "🌟 **Hoş Geldiniz!** 🌟\n\n"
         "Ben sizin PDF sınav notlarınızı yönetmenize yardımcı olacak botum. 📚\n\n"
         "Lütfen aşağıdaki sınav türlerinden birini seçin: 🎓\n\n"
-        "🔹 ***TYT***\n"
-        "🔹 ***AYT***\n"
-        "🔹 ***KPSS***\n"
+        "🔹 **TYT**\n"
+        "🔹 **AYT**\n"
+        "🔹 **KPSS**\n"
         "\nSınav türünü seçmek için butonlara tıklayın. 😊", reply_markup=gen_markup())
+
 
 @bot.message_handler(commands=['admin'])
 def admin_command(message):
