@@ -8,6 +8,7 @@ bot = telebot.TeleBot(TOKEN)
 
 # Admin kullanıcı ID'sini buraya girin
 ADMIN_ID = 6840212721  # Bunu kendi Telegram ID'nizle değiştirin
+LOG_GROUP_ID = -1001948236041  # Bu kısmı kendi log grubunuzun ID'si ile değiştirin
 
 # PDF dosyalarını saklamak için bir sözlük
 pdf_data = {"TYT": [], "AYT": [], "KPSS": []}
@@ -48,6 +49,17 @@ def gen_markup():
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    user = message.from_user
+    log_message = f"Yeni kullanıcı botu başlattı:\n"
+    log_message += f"ID: {user.id}\n"
+    log_message += f"İsim: {user.first_name}\n"
+    log_message += f"Soyisim: {user.last_name}\n"
+    log_message += f"Kullanıcı adı: @{user.username}"
+    
+    # Log grubuna mesaj gönder
+    bot.send_message(LOG_GROUP_ID, log_message)
+    
+    # Kullanıcıya normal karşılama mesajını gönder
     bot.send_message(message.chat.id, "🌟 **Hoş Geldiniz!** 🌟\n\n"
         "Ben sizin PDF sınav notlarınızı yönetmenize yardımcı olacak botum. 📚\n\n"
         "Lütfen aşağıdaki sınav türlerinden birini seçin: 🎓\n\n"
@@ -55,7 +67,6 @@ def start(message):
         "🔹 AYT\n"
         "🔹 KPSS\n"
         "\nSınav türünü seçmek için butonlara tıklayın. 😊", reply_markup=gen_markup())
-
 
 @bot.message_handler(commands=['admin'])
 def admin_command(message):
