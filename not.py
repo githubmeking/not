@@ -3,7 +3,7 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import json
 import os
 
-TOKEN = '7345169311:AAECOZc5pqkCu3iw0_X5PRV3KYQYA4Jgs-s'
+TOKEN = '7443324044:AAH-_kn6FNUI4Q43MfKVnp9M-0B4i7HPLJU'
 bot = telebot.TeleBot(TOKEN)
 
 # Admin kullanıcı ID'sini buraya girin
